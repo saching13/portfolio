@@ -2,9 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["i.scdn.co", "www.notion.so", "s3.us-west-2.amazonaws.com"],
+    domains: ["i.scdn.co", "www.notion.so", "prod-files-secure.s3.us-west-2.amazonaws.com", "s3.us-west-2.amazonaws.com"],
   },
-  webpack: (config, { isServer }) => {
+    webpack: (config, { isServer }) => {
     if (isServer) return config;
 
     const { resolve } = config;
