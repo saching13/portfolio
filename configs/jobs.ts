@@ -1,47 +1,25 @@
 const jobs = [
   {
-    companyName: "Texts",
+    companyName: "Luxonis",
     jobDescription:
-      "Building the all-in-one chat application.",
-    jobStart: new Date(2023, 8),
-    jobTitle: "Fullstack & Reverse Engineer 🧑‍💻",
+      "Building DepthAI Perception Stack",
+    jobStart: new Date(2020, 8),
+    jobTitle: "Computer Vision Roboticist 🤖",
   },
   {
-    companyName: "MaxRewards",
+    companyName: "San Jose State University",
     jobDescription:
-      "Reverse-engineering client & network fingerprinting to build out bank connectors.",
-    jobStart: new Date(2021, 11),
-    jobTitle: "Senior Financial API Developer 💰",
+      "Building Novel Motion Planner for Advection-diffusion field.",
+    jobStart: new Date(2019, 1),
+    jobTitle: "Research Assistant 🦾",
   },
   {
-    companyName: "Jumbleberry",
+    companyName: "SafeHalo",
     jobDescription:
-      "Building the user-interfaces, & fullstack features of their advertising platform.",
-    jobStart: new Date(2021, 6),
-    jobEnd: new Date(2021, 11),
-    jobTitle: "Intermediate Frontend Developer 🌐",
-  },
-  {
-    companyName: "Cion Studio",
-    jobDescription:
-      "Developing pixel-perfect user interfaces, and architecting fullstack systems.",
-    jobStart: new Date(2021, 5),
-    jobEnd: new Date(2022, 1),
-    jobTitle: "Fullstack Software Developer 👨‍💻",
-  },
-  {
-    companyName: "Code Ninjas",
-    jobDescription: "Teaching & inspiring the next generation of coders.",
-    jobStart: new Date(2020, 7),
-    jobEnd: new Date(2021, 6),
-    jobTitle: "Lead Coding Instructor 🧑‍🏫",
-  },
-  {
-    companyName: "Calgary Public Library",
-    jobDescription: "Developing curriculum & teaching prospective developers.",
-    jobStart: new Date(2019, 10),
-    jobEnd: new Date(2020, 0),
-    jobTitle: "Volunteer Coding Instructor ✋",
+      "Building Driver Assistant device for logistics.",
+    jobStart: new Date(2016, 9),
+    jobEnd: new Date(2018, 6),
+    jobTitle: "Computer Vision Engineer 📷",
   },
 ];
 
