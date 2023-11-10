@@ -12,7 +12,7 @@ interface ProjectProps {
 }
 
 const Project: React.VFC<ProjectProps> = ({ name, stars, description }) => (
-  <a target="_blank" href={`https://github.com/ridafkih/${name}`} rel="noreferrer">
+  <a target="_blank" href={`https://github.com/saching13/${name}`} rel="noreferrer">
     <li className="space-y-2">
       <div className="flex items-center gap-2">
         <Heading type="h3">{name}</Heading>

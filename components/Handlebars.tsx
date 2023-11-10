@@ -7,6 +7,7 @@ import {
   faInstagram,
   faTwitter,
   IconDefinition,
+  faLinkedinIn
 } from "@fortawesome/free-brands-svg-icons";
 
 interface HandlebarsProps {
@@ -42,13 +43,17 @@ const Handlebars: React.VFC<HandlebarsProps> = ({ email }) => {
         <ul>
           <HandlebarLink
             icon={faGithubAlt}
-            link="https://github.com/ridafkih"
+            link="https://github.com/saching13"
           />
           <HandlebarLink
             icon={faInstagram}
-            link="https://instagram.com/ridafkih"
+            link="https://instagram.com/sags.42"
           />
-          <HandlebarLink icon={faTwitter} link="https://twitter.com/ridafkih" />
+          <HandlebarLink icon={faTwitter} link="https://twitter.com/GuruswamySachin" />
+          <HandlebarLink
+            icon={faLinkedinIn}
+            link="https://www.linkedin.com/in/sachin-guruswamy"
+          />
         </ul>
       </div>
     </div>

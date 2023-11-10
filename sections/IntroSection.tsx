@@ -7,11 +7,11 @@ import Section from "@/atoms/Section";
 
 const IntroSection: React.VFC = () => (
   <Section>
-    <Heading type="h1">Hello, I&apos;m Rida F&apos;kih 👋</Heading>
+    <Heading type="h1">Hello, I&apos;m Sachin Guruswamy 👋</Heading>
     <Paragraph weight="light">
-      Young full-stack mobile, web, & reverse engineer currently{" "}
-      <Link href="https://texts.com/">
-        @ Texts.com
+      Young Robotics, Perception & Computer Vision engineer currently{" "}
+      <Link href="https://luxonis.com">
+        @ Luxonis
       </Link>.
     </Paragraph>
   </Section>

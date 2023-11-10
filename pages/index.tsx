@@ -39,7 +39,7 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
       <Cursor />
       <MetaData currentUrl={getCurrentUrl(router.asPath)} />
       <WidthLimiter>
-        <Handlebars email="hello@rida.dev" />
+        <Handlebars email="hello@sachin.dev" />
         <Header />
         <PageContainer>
           <MapSection />
@@ -50,7 +50,7 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
           <ProjectsSection gitHubData={gitHubData} />
           <BigProjectsSection />
           <BlogPreviewSection blogs={blogData.slice(0, 3)} />
-          <ContactMeSection email="hello@rida.dev" />
+          <ContactMeSection email="hello@sachin.dev" />
         </PageContainer>
       </WidthLimiter>
     </>
@@ -59,7 +59,7 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
 
 export async function getStaticProps() {
   const [gitHubData, blogData] = await Promise.all([
-    getProjectsFromGitHub("ridafkih"),
+    getProjectsFromGitHub("saching13"),
     getBlogList(),
   ]);
 
