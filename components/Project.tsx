@@ -9,6 +9,7 @@ interface ProjectProps {
   name: string;
   description: string;
   stars: number;
+  org: string;
 }
 
 const Project: React.VFC<ProjectProps> = ({ name, stars, description, org }) => (
