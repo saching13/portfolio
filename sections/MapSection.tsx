@@ -33,6 +33,10 @@ const MapSection: React.VFC = () => {
     // Add navigation control (optional)
     // map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
+    new mapboxgl.Marker({ color: 'green' })
+      .setLngLat([location.longitude, location.latitude])
+      .addTo(map);
+
     return () => map.remove(); // Clean up the map instance on unmount
   }, [location]);
 
