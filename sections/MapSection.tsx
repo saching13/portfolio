@@ -6,14 +6,11 @@ import { SewingPinFilledIcon } from "@radix-ui/react-icons";
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const { MAPBOX_TOKEN } = process.env;
 
-mapboxgl.accessToken=process.env.MAPBOX_TOKEN || '';
+mapboxgl.accessToken=process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
 
 const MapSection: React.VFC = () => {
   console.log("Ftoekn --->>> ", mapboxgl.accessToken)
-  console.log("Ftoekn --->>> ", MAPBOX_TOKEN)
-
 
   const [location, setLocation] = React.useState<LocationInformation>({
     description: "San Francisco Bay Area, California",
@@ -25,14 +22,7 @@ const MapSection: React.VFC = () => {
 
 
   useEffect(() => {
-    // mapboxgl.accessToken = process.env.MAPBOX_TOKEN || '';
-    
-    // if (!mapboxgl.accessToken || mapboxgl.accessToken === '') {
-    //   console.log("MAPBOX_TOKEN --->>> ", typeof MAPBOX_TOKEN)
-  
-    //   console.error('Mapbox access token is not set!');
-    //   return;
-    // }
+
     console.log("Ftoekn in use effect --->>> ", mapboxgl.accessToken)
 
     const map = new mapboxgl.Map({
