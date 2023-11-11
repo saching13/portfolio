@@ -20,8 +20,8 @@
     "@vercel/analytics": "^1.1.1",
     "axios": "^0.26.1",
     "jsdom": "^19.0.0",
-    "mapkit-react": "^1.4.0",
     "mapbox-gl": "^2.15.0",
+    "mapkit-react": "^1.4.0",
     "next": "12.1.4",
     "prismjs": "^1.27.0",
     "react": "^18.2.0",
@@ -32,6 +32,7 @@
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.3.1",
     "@types/jsdom": "^16.2.14",
+    "@types/mapbox-gl": "^2.7.18",
     "@types/node": "17.0.23",
     "@types/prismjs": "^1.26.0",
     "@types/react": "17.0.43",
@@ -44,8 +45,5 @@
     "tailwindcss": "^3.0.23",
     "typescript": "4.6.3",
     "vercel": "^19.1.2"
-  },
-  "engines": {
-    "node": "20.x"
   }
 }

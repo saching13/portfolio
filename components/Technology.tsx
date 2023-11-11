@@ -6,17 +6,18 @@ interface TechnologyProps {
 }
 
 const Technology: React.VFC<TechnologyProps> = ({ iconName, name }) => {
-  const Icon = typeof iconName === 'string' ? 'i' : iconName; // Component or 'i'
+  let iconElement;
+  // const Icon = typeof iconName === 'string' ? 'i' : iconName; // Component or 'i'
+  if (typeof iconName === 'string') {
+    // iconName is a string, so use it as a class for an <i> element
+    iconElement = <i className={iconName}></i>;
+  } else if (React.isValidElement(iconName)) {
+    // iconName is a React element
+    iconElement = iconName;
+  }
   return (
     <li className="flex items-center" key={name}>
-      <Icon className={typeof iconName === 'string' ? iconName : undefined}>
-        {typeof iconName === 'string' ? null : iconName}
-      </Icon>
-
-      {/* {typeof iconName === 'string' ?
-        <i className={iconName}></i> :
-        <iconName />
-      } */}
+      {iconElement}
       <span className="ml-2">{name}</span>
     </li>
   );

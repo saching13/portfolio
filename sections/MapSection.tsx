@@ -8,7 +8,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 const { MAPBOX_TOKEN } = process.env;
 
-mapboxgl.accessToken=process.env.MAPBOX_TOKEN;
+mapboxgl.accessToken=process.env.MAPBOX_TOKEN || '';
 
 const MapSection: React.VFC = () => {
   console.log("Ftoekn --->>> ", mapboxgl.accessToken)
@@ -26,8 +26,7 @@ const MapSection: React.VFC = () => {
 
   useEffect(() => {
     // mapboxgl.accessToken = process.env.MAPBOX_TOKEN || '';
-    // mapboxgl.accessToken="pk.eyJ1Ijoic2FjaGluZzEyIiwiYSI6ImNsb3RzanV1MzBibmIycG8xOXBrNWZkeWIifQ.SZ-7cxo0alSva-Z_K7jPxQ"
-
+    
     // if (!mapboxgl.accessToken || mapboxgl.accessToken === '') {
     //   console.log("MAPBOX_TOKEN --->>> ", typeof MAPBOX_TOKEN)
   
