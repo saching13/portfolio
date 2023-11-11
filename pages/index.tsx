@@ -48,7 +48,7 @@ const HomePage: NextPage<HomeProps> = ({ gitHubData, blogData }) => {
           <TechnologiesSection />
           <MyOpportunitiesSection />
           <ProjectsSection gitHubData={gitHubData} />
-          <BigProjectsSection />
+          {/* <BigProjectsSection /> */}
           <BlogPreviewSection blogs={blogData.slice(0, 3)} />
           <ContactMeSection email="hello@sachin.dev" />
         </PageContainer>

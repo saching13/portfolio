@@ -65,7 +65,6 @@ export const getProjectsFromGitHub = async (
     .catch(() => undefined);
 
   const { document } = new JSDOM(githubPage).window;
-  console.log("document is -> ", document || "Unknown");
 
   const repositoryTitleElements = Array.from(
     document.querySelectorAll(".repo")
@@ -75,7 +74,6 @@ export const getProjectsFromGitHub = async (
   // return repositoryTitleElements.map(getPinnedRepositoryData).sort(sortByStars);
   return repositoryTitleElements.map((titleElement, index) => {
     const ownerElement = repositoryOwnerElements[index]; // Get corresponding owner element
-    console.log("owner element is -> ", ownerElement || "Unknown")
     return getPinnedRepositoryData(titleElement, ownerElement); // Pass both elements to the function
   }).sort(sortByStars);
 };

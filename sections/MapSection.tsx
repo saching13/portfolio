@@ -3,61 +3,64 @@ import { ColorScheme, Map, MapType, Marker } from "mapkit-react";
 import { usePreferredTheme } from "@/hooks/preferred-theme";
 import { LocationInformation } from "@/@types/location";
 import { SewingPinFilledIcon } from "@radix-ui/react-icons";
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
-const token =
-  "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ijc3SFRRR0xaRDMifQ.eyJpc3MiOiJIUUxNOFBIV0NNIiwiaWF0IjoxNjc4MDU2ODYzLCJleHAiOjE3MDk1OTY4MDAsIm9yaWdpbiI6Imh0dHBzOi8vd3d3LnJpZGEuZGV2In0.L1APky8haemxHF3INFW0HULn4djTsVGbrwHCTUqfAf370P0pQ_g64Gg1k9Vrz9K_ahDLhFlic1UHkIOzeXvTxw";
+const { MAPBOX_TOKEN } = process.env;
+
+mapboxgl.accessToken=process.env.MAPBOX_TOKEN;
 
 const MapSection: React.VFC = () => {
-  const [location, setLocation] = useState<LocationInformation>();
+  console.log("Ftoekn --->>> ", mapboxgl.accessToken)
+  console.log("Ftoekn --->>> ", MAPBOX_TOKEN)
 
-  const [mapTransform, setMapTransform] = useState<string>(
-    "rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(0.75)"
-  );
-  const { theme } = usePreferredTheme();
+
+  const [location, setLocation] = React.useState<LocationInformation>({
+    description: "San Francisco Bay Area, California",
+    latitude: 37.77286991906767,
+    longitude: -122.42730340601106,
+    date: 1699657336433
+  });
+
+
 
   useEffect(() => {
-    if (location)
-      setMapTransform("rotateX(50deg) rotateY(0deg) rotateZ(16deg) scale(0.9)");
-    else
-      fetch("/api/location")
-        .then((response) => response.json() as Promise<LocationInformation>)
-        .then(setLocation);
-  }, [location, setLocation]);
+    // mapboxgl.accessToken = process.env.MAPBOX_TOKEN || '';
+    // mapboxgl.accessToken="pk.eyJ1Ijoic2FjaGluZzEyIiwiYSI6ImNsb3RzanV1MzBibmIycG8xOXBrNWZkeWIifQ.SZ-7cxo0alSva-Z_K7jPxQ"
+
+    // if (!mapboxgl.accessToken || mapboxgl.accessToken === '') {
+    //   console.log("MAPBOX_TOKEN --->>> ", typeof MAPBOX_TOKEN)
+  
+    //   console.error('Mapbox access token is not set!');
+    //   return;
+    // }
+    console.log("Ftoekn in use effect --->>> ", mapboxgl.accessToken)
+
+    const map = new mapboxgl.Map({
+      container: 'map', // container ID
+      style: 'mapbox://styles/mapbox/streets-v11', // style URL
+      center: [location.longitude, location.latitude], // starting position [lng, lat]
+      zoom: 10, // starting zoom
+      pitch: 45, // Tilt the map for a 3D perspective
+      bearing: -17.6 // Optional: Adjust the bearing for map rotation
+    });
+  
+    // Add navigation control (optional)
+    // map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+    return () => map.remove(); // Clean up the map instance on unmount
+  }, [location]);
+
+
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2" style={{ height: '100%' }}>
       <div
-        className="relative flex items-center justify-center w-full overflow-hidden border border-solid rounded-lg h-44 border-neutral-300 dark:border-neutral-700"
-        style={{ perspective: "2000px", transformStyle: "preserve-3d" }}
-      >
+        className="relative flex items-center justify-center w-full overflow-hidden border border-solid rounded-lg h-64 border-neutral-300 dark:border-neutral-700"
+        style={{ perspective: "2000px", transformStyle: "preserve-3d" }}>
         <div className="absolute inset-0 z-30 opacity-30 dark:opacity-50 bg-gradient-to-tr from-transparent to-neutral-200 dark:to-neutral-800" />
-        <div
-          className="absolute z-20 w-[1200px] h-[1200px] transition-transform delay-1000 duration-1000 grayscale dark:brightness-50"
-          style={{ transform: mapTransform }}
-        >
-          {location && (
-            <Map
-              token={token}
-              initialRegion={{
-                centerLatitude: location.latitude,
-                centerLongitude: location.longitude,
-                latitudeDelta: 0.05,
-                longitudeDelta: 0.05,
-              }}
-              colorScheme={
-                theme === "light" ? ColorScheme.Light : ColorScheme.Dark
-              }
-              isZoomEnabled={false}
-              isRotationEnabled={false}
-              isScrollEnabled={false}
-              showsMapTypeControl={false}
-              showsPointsOfInterest={false}
-              showsUserLocation={false}
-              showsUserLocationControl={false}
-              showsZoomControl={false}
-              mapType={MapType.MutedStandard}
-            />
-          )}
+        <div id="map" className="mapContainer " style={{ height: '1000px', width: '100%' }}>
+            {/* Mapbox map will attach to this div */}
         </div>
         <div className="absolute inset-0 z-10 opacity-40 bg-neutral-300 dark:bg-neutral-800" />
       </div>
