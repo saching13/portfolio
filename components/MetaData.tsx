@@ -11,7 +11,7 @@ interface MetaDataProps {
 
 const MetaData: React.VFC<MetaDataProps> = ({
   title = "Sachin Guruswamy — Computer Vision Roboticist",
-  description = "I am  located in San Francisco Bay area.",
+  description = "I am located in San Francisco Bay area.",
   bannerUrl = getCurrentUrl("/meta-preview.png"),
   currentUrl,
 }) => {
