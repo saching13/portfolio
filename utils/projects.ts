@@ -33,7 +33,7 @@ const sortByStars = (project: GitHubData, referenceProject: GitHubData) => {
  * @param repoTitleElement The title element on the GitHub page.
  * @returns An object containing the repository data.
  */
-const getPinnedRepositoryData = (repoTitleElement: Element): GitHubData => {
+const getPinnedRepositoryData = (repoTitleElement: Element, repoOwnerElements: Element): GitHubData => {
   const parentElement = repoTitleElement.closest(".Box");
   const descriptionElement = parentElement?.querySelector("p");
   const starElement = parentElement?.querySelector(".pinned-item-meta");
@@ -43,8 +43,10 @@ const getPinnedRepositoryData = (repoTitleElement: Element): GitHubData => {
   const description =
     filterEmojis(descriptionElement?.textContent?.trim()) ||
     "Description Unavailable";
-
-  return { name, description, stars };
+  const org = repoOwnerElements?.textContent || "saching13/"; // Extract owner/user name
+  //TODO(saching13): Fix the int parsing. This will make stars with 1000+ look like 1 or 2. 
+  // console.log("Stars -> ", stars)
+  return { name, description, stars, org };
 };
 
 /**
@@ -63,10 +65,17 @@ export const getProjectsFromGitHub = async (
     .catch(() => undefined);
 
   const { document } = new JSDOM(githubPage).window;
+  console.log("document is -> ", document || "Unknown");
 
   const repositoryTitleElements = Array.from(
     document.querySelectorAll(".repo")
   );
+  const repositoryOwnerElements = Array.from(document.querySelectorAll(".owner.text-normal")); // Example selector
 
-  return repositoryTitleElements.map(getPinnedRepositoryData).sort(sortByStars);
+  // return repositoryTitleElements.map(getPinnedRepositoryData).sort(sortByStars);
+  return repositoryTitleElements.map((titleElement, index) => {
+    const ownerElement = repositoryOwnerElements[index]; // Get corresponding owner element
+    console.log("owner element is -> ", ownerElement || "Unknown")
+    return getPinnedRepositoryData(titleElement, ownerElement); // Pass both elements to the function
+  }).sort(sortByStars);
 };
