@@ -10,7 +10,6 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 mapboxgl.accessToken=process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
 
 const MapSection: React.VFC = () => {
-  console.log("Ftoekn --->>> ", mapboxgl.accessToken)
 
   const [location, setLocation] = React.useState<LocationInformation>({
     description: "San Francisco Bay Area, California",
@@ -22,9 +21,6 @@ const MapSection: React.VFC = () => {
 
 
   useEffect(() => {
-
-    console.log("Ftoekn in use effect --->>> ", mapboxgl.accessToken)
-
     const map = new mapboxgl.Map({
       container: 'map', // container ID
       style: 'mapbox://styles/mapbox/streets-v11', // style URL
