@@ -29,7 +29,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ blogs }) => {
         currentUrl={getCurrentUrl(router.asPath)}
       />
       <WidthLimiter>
-        <Handlebars email="hello@sachin.dev" />
+        <Handlebars email="sachin@sags.dev" />
         <Header />
         <PageContainer>
           <div className="space-y-4">

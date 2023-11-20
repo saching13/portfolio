@@ -39,7 +39,7 @@ const BlogPage: NextPage<BlogPageProps> = ({
         bannerUrl={cover}
       />
       <WidthLimiter>
-        <Handlebars email="hello@sachin.dev" />
+        <Handlebars email="sachin@sags.dev" />
         <Header />
         <PageContainer>
           <div className="pb-24 space-y-12">
