@@ -4,21 +4,23 @@ import React from "react";
 const Analytics: React.VFC = () => {
   return (
     <>
-      <Script
+      <Script async
         src="https://www.googletagmanager.com/gtag/js?id=G-P93BX55QZ1"
         strategy="afterInteractive"
       />
-
       <Script defer data-domain="sags.dev" src="https://plausible.io/js/script.js" />
+
       <Script id="google-analytics" strategy="afterInteractive">
         {`
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){window.dataLayer.push(arguments);}
 					gtag('js', new Date());
 
-					gtag('config', 'GTM-P9Q97C7Z');
+					gtag('config', 'G-XHMNG9Q9KB');
         `}
       </Script>
+
+
       <Script id="twitter-analytics" strategy="afterInteractive">
         {`
 					!(function (e, t, n, s, u, a) {
